@@ -23,7 +23,7 @@ def get_logger(module_name, use_color=True, log_level=logging.INFO, log_format=N
         logger.debug('This is a debug message')
         logger.debug('This is a debug message', use_colors=True)
     """
-    log_format = '%(asctime)s %(levelname)s %(module)s: %(message)s' if log_format is None else log_format
+    log_format = '%(asctime)s %(name)s:L%(lineno)d %(levelname)s: %(message)s' if log_format is None else log_format
     date_format = '%Y-%m-%d %H:%M:%S'
     if not use_color:
         logging.basicConfig(level=log_level, format=log_format, datefmt=date_format)
