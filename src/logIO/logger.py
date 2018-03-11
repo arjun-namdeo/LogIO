@@ -8,7 +8,7 @@ emitting the information (file, line, function) and timestamp.
 import logging
 
 
-def get_logger(module_name, use_color=True, log_level=logging.DEBUG, log_format=None):
+def get_logger(module_name, use_color=True, log_level=logging.INFO, log_format=None):
     """
     Logger mixin/base class adding verbose logging to subclasses.
     Subclasses get info(), debug(), warning() and error() methods which, alongside
@@ -44,3 +44,4 @@ if __name__ == "__main__":
     logger.warning("this is a warning message")
     logger.error("this is an error message")
     logger.critical("this is a critical message")
+
