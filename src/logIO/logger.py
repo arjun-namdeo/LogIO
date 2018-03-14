@@ -7,6 +7,13 @@ emitting the information (file, line, function) and timestamp.
 """
 import logging
 
+coloredlogs = None
+
+try:
+    import coloredlogs
+except Exception as e:
+    print "WARNING: ImportError - Cannot Import 'coloredlogs', Using default logging instead...".format(e)
+
 
 def get_logger(module_name, use_color=True, log_level=logging.INFO, log_format=None):
     """
@@ -21,16 +28,21 @@ def get_logger(module_name, use_color=True, log_level=logging.INFO, log_format=N
 
         logger = get_logger(__name__)
         logger.debug('This is a debug message')
-        logger.debug('This is a debug message', use_colors=True)
+        logger.warning('This is a warning message', use_colors=False)
     """
+    global coloredlogs
+
     log_format = '%(asctime)s %(name)s:L%(lineno)d %(levelname)s: %(message)s' if log_format is None else log_format
     date_format = '%Y-%m-%d %H:%M:%S'
-    if not use_color:
-        logging.basicConfig(level=log_level, format=log_format, datefmt=date_format)
-        return logging.getLogger(module_name)
 
-    import coloredlogs
+    logging.basicConfig(level=log_level, format=log_format, datefmt=date_format)
     _logger = logging.getLogger(module_name)
+
+    if coloredlogs is None or not use_color:
+        # if colored_logs not found in $PYTHONPATH or user asked specifically
+        # for no-color std-out. Use default logger.
+        return _logger
+
     coloredlogs.install(level=log_level, logger=_logger, fmt=log_format, datefmt=date_format)
     return _logger
 
