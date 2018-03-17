@@ -1,6 +1,8 @@
 # logIO 
 ## Logging IO repository
 
+[![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyside2/badges/version.svg)](https://anaconda.org/conda-forge/pyside2) [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyside2/badges/platforms.svg)](https://anaconda.org/conda-forge/pyside2) [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyside2/badges/latest_release_relative_date.svg)](https://anaconda.org/conda-forge/pyside2)
+
 A simple logging wrapper with more intuitive approach for logging information in the backend
 This will support a great number of IO stream methods with nice and friendly looking
 verbosity level.
@@ -14,6 +16,7 @@ logger = get_logger(__name__)
 
 # logger will use colors by default
 # Info=Green, Warning=Orange, Error=Red, Critical=Red, Debug=White
+# https://anaconda.org/conda-forge/pyside2
 
 logger.info("This will show as INFO log in console")
 logger.warning("This will show as WARNING log in console", use_color=False)  
