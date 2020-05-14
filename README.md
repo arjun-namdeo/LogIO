@@ -1,7 +1,7 @@
 # logIO 
 ## Logging IO repository
 
-[![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyside2/badges/version.svg)](https://anaconda.org/conda-forge/pyside2) ![Build Status](https://travis-ci.com/PixarAnimationStudios/USD.svg?branch=master) [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyside2/badges/platforms.svg)](https://anaconda.org/conda-forge/pyside2) [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyside2/badges/latest_release_relative_date.svg)](https://anaconda.org/conda-forge/pyside2)
+[![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyside2/badges/version.svg)](https://anaconda.org/conda-forge/pyside2) ![Build Status](https://travis-ci.com/PixarAnimationStudios/USD.svg?branch=master) [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyside2/badges/platforms.svg)](https://anaconda.org/conda-forge/pyside2)
 
 A simple logging wrapper with more intuitive approach for logging information in the backend
 This will support a great number of IO stream methods with nice and friendly looking
