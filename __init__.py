@@ -4,5 +4,5 @@
 """
 Custom Logging IO
 """
-from .logger import get_logger
+from logIO.setupLogging import *
 

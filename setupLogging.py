@@ -6,9 +6,13 @@ Simple wrapper for Python logging module. Adds information about location
 emitting the information (file, line, function) and timestamp.
 """
 import logging
+from logging import WARN, DEBUG, INFO, CRITICAL, INFO
 
 
-def get_logger(module_name, use_color=True, log_level=logging.INFO, log_format=None):
+__all__ = ["WARN", "DEBUG", "INFO", "CRITICAL", "INFO", "get_logger"]
+
+
+def get_logger(module_name, use_color=True, log_level=logging.DEBUG, log_format=None):
     """
     Logger mixin/base class adding verbose logging to subclasses.
     Subclasses get info(), debug(), warning() and error() methods which, alongside
@@ -26,13 +30,17 @@ def get_logger(module_name, use_color=True, log_level=logging.INFO, log_format=N
     try:
         import coloredlogs
     except Exception as e:
-        print("WARNING: ImportError - Cannot Import 'coloredlogs', Using default logging instead...".format(e))
+        print("WARNING: ImportError - Cannot Import 'coloredlogs', Using default logging instead...")
 
     log_format = "%(asctime)s %(name)s:L%(lineno)d %(levelname)s: %(message)s" if log_format is None else log_format
     date_format = "%Y-%m-%d %H:%M:%S"
 
     logging.basicConfig(level=log_level, format=log_format, datefmt=date_format)
     user_logger = logging.getLogger(module_name)
+
+    import pdb
+
+    # pdb.set_trace()
 
     if coloredlogs is None or not use_color:
         # if colored_logs not found in $PYTHONPATH or user asked specifically
